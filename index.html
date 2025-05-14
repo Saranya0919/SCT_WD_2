@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f0f0f0;
+    }
+    #display {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    #laps {
+      margin-top: 20px;
+      list-style-type: none;
+      padding: 0;
+    }
+    #laps li {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Stopwatch Web Application</h1>
+  <div id="display">00:00:00</div>
+
+  <button onclick="startStopwatch()">Start</button>
+  <button onclick="pauseStopwatch()">Pause</button>
+  <button onclick="resetStopwatch()">Reset</button>
+  <button onclick="lapTime()">Lap</button>
+
+  <ul id="laps"></ul>
+
+  <script>
+    let startTime, updatedTime, difference, tInterval;
+    let running = false;
+    let lapCounter = 1;
+
+    function updateTime() {
+      updatedTime = new Date().getTime()
